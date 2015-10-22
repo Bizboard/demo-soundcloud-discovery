@@ -4,9 +4,10 @@
 
 import _                     from 'lodash';
 import Surface               from 'famous/core/Surface.js';
-import {View}                from 'arva-js/core/View.js';
 import Utility               from 'famous/utilities/Utility.js';
-import {AudioSurface}        from './AudioSurface.js';
+
+import {View}                from 'arva-js/core/View.js';
+import {AudioSurface}        from '../components/AudioSurface.js';
 
 export class SoundCloudEqualizer extends View {
 
@@ -36,5 +37,4 @@ export class SoundCloudEqualizer extends View {
             });
         });
     }
-
 }
