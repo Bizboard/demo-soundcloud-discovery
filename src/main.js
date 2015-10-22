@@ -1,3 +1,6 @@
+import 'babel/external-helpers';
+import 'babel/polyfill';
+
 import {createDefaultContext}   from 'arva-js/DefaultContext.js';
 import {ArvaRouter}             from 'arva-js/routers/ArvaRouter.js';
 import {DefaultDataSource}      from './DefaultDataSource.js';
