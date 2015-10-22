@@ -35,9 +35,6 @@ export class SoundCloudEqualizer extends View {
                 align: [1, 0]
             });
         });
-
-        this.build();
-
     }
 
 }
