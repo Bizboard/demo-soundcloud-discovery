@@ -16,7 +16,7 @@ export class HomeController extends Controller {
             let tracks = await SoundCloud.get('/tracks'/*, {license: 'cc-by-sa' }*/);
             let track = _.sample(_.filter(tracks, (metaInfo) => metaInfo.license !== 'all-rights-reserved' && metaInfo.streamable));
 
-            resolve(new MusicView({url: `${track.stream_url}?client_id=${soundCloudClientID}`}));
+            resolve(new MusicView({url: `${track.stream_url}?client_id=${soundCloudClientID}`, author: track.user.username, title: track.title}));
         });
     }
 }
