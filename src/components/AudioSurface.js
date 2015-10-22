@@ -48,7 +48,7 @@ export class AudioSurface extends Surface {
 
         // public properties and methods
         this.volume = 0;
-        this.streamData = new Uint8Array(this.bufferlength); // This just means we will have 128 "bins" (always half the analyzer.fftsize value), each containing a number between 0 and 255.
+        this.streamData = null;
 
         var analyser;
         var audioContext = new (window.AudioContext || window.webkitAudioContext); // this is because it's not been standardised accross browsers yet.
@@ -61,10 +61,10 @@ export class AudioSurface extends Surface {
         source.connect(analyser);
         analyser.connect(audioContext.destination);
 
-        var bufferlength = analyser.frequencyBinCount;
-        this.bufferlength = bufferlength;
+        this.bufferLength = analyser.frequencyBinCount;
+        this.streamData = new Uint8Array(this.bufferLength); // This just means we will have 128 "bins" (always half the analyzer.fftsize value), each containing a number between 0 and 255.
 
-        var sampleAudioStream = () => {
+        var sampleAudioStream = function() {
             // This closure is where the magic happens. Because it gets called with setInterval below, it continuously samples the audio data
             // and updates the streamData and volume properties. This the SoundCouldAudioSource function can be passed to a visualization routine and
             // continue to give real-time data on the audio stream.
@@ -75,7 +75,7 @@ export class AudioSurface extends Surface {
                 total += this.streamData[i];
             }
             this.volume = total;
-        };
+        }.bind(this);
 
         setInterval(sampleAudioStream, 32); //
 
