@@ -14,8 +14,9 @@ export class HomeController extends Controller {
 
         return new Promise(async function (resolve) {
             let tracks = await SoundCloud.get('/tracks'/*, {license: 'cc-by-sa' }*/);
+            let track = _.sample(_.filter(tracks, (metaInfo) => metaInfo.license !== 'all-rights-reserved' && metaInfo.streamable));
 
-            resolve(new MusicView({url: `${_.sample(tracks).stream_url}?client_id=${soundCloudClientID}`}));
+            resolve(new MusicView({url: `${track.stream_url}?client_id=${soundCloudClientID}`}));
         });
     }
 }
