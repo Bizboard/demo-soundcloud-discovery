@@ -14,7 +14,8 @@
       "famous": "npm:famous@0.3.5",
       "famous-flex": "github:ijzerenhein/famous-flex@master",
       "fastclick": "npm:fastclick@^1.0.6",
-      "lodash": "npm:lodash@^3.10.0"
+      "lodash": "npm:lodash@^3.10.0",
+      "soundcloud": "npm:soundcloud@^3.0.1"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.6.4",
@@ -23,5 +24,8 @@
       "traceur": "github:jmcriffey/bower-traceur@0.0.90",
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.90"
     }
+  },
+  "dependencies": {
+    "soundcloud": "^3.0.1"
   }
 }
