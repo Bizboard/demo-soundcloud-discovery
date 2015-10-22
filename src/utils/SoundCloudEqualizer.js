@@ -4,6 +4,7 @@
 
 import _                     from 'lodash';
 import Surface               from 'famous/core/Surface.js';
+import CanvasSurface         from 'famous/core/CanvasSurface.js';
 import {View}                from 'arva-js/core/View.js';
 import Utility               from 'famous/utilities/Utility.js';
 import {AudioSurface}        from './AudioSurface.js';
@@ -17,7 +18,8 @@ export class SoundCloudEqualizer extends View {
             url: options.url
         });
 
-        this.renderables.equalizer = new Surface({
+        this.renderables.equalizer = new CanvasSurface({
+
         });
 
 
