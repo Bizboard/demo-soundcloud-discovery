@@ -4,14 +4,13 @@
 
 import _                     from 'lodash';
 import Surface               from 'famous/core/Surface.js';
-import CanvasSurface         from 'famous/core/CanvasSurface.js';
-import {View}                from 'arva-js/core/View.js';
 import Utility               from 'famous/utilities/Utility.js';
+import CanvasSurface         from 'famous/surfaces/CanvasSurface.js';
 
 import {View}                from 'arva-js/core/View.js';
 import {AudioSurface}        from '../components/AudioSurface.js';
 
-export class SoundCloudEqualizer extends View {
+export class MusicView extends View {
 
     constructor(options = {}) {
         super(options);

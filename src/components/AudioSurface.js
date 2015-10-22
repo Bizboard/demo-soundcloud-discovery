@@ -44,21 +44,22 @@ export class AudioSurface extends Surface {
         return this._name;
     }
 
-    deploy(target) {
+    deploy() {
 
         // public properties and methods
         this.volume = 0;
         this.streamData = new Uint8Array(this.bufferlength); // This just means we will have 128 "bins" (always half the analyzer.fftsize value), each containing a number between 0 and 255.
 
         var analyser;
-        var audioCtx = new (window.AudioContext || window.webkitAudioContext); // this is because it's not been standardised accross browsers yet.
+        var audioContext = new (window.AudioContext || window.webkitAudioContext); // this is because it's not been standardised accross browsers yet.
 
-        analyser = audioCtx.createAnalyser();
+        analyser = audioContext.createAnalyser();
         analyser.fftSize = 256; // see - there is that 'fft' thing.
         analyser.smoothingTimeConstant = 0.8;
-        var source = audioCtx.createMediaElementSource(target); // this is where we hook up the <audio> element
+
+        var source = audioContext.createMediaElementSource(this._element); // this is where we hook up the <audio> element
         source.connect(analyser);
-        analyser.connect(audioCtx.destination);
+        analyser.connect(audioContext.destination);
 
         var bufferlength = analyser.frequencyBinCount;
         this.bufferlength = bufferlength;
@@ -78,7 +79,7 @@ export class AudioSurface extends Surface {
 
         setInterval(sampleAudioStream, 32); //
 
-        target.setAttribute('src', this.streamUrl);
-        target.play();
+        this._element.setAttribute('src', this.streamUrl);
+        this._element.play();
     }
 }

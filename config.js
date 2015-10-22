@@ -1,8 +1,8 @@
 System.config({
-  "baseURL": "./",
-  "defaultJSExtensions": true,
-  "transpiler": "babel",
-  "babelOptions": {
+  baseURL: "./",
+  defaultJSExtensions: true,
+  transpiler: "babel",
+  babelOptions: {
     "stage": 0,
     "optional": [
       "runtime",
@@ -11,15 +11,13 @@ System.config({
       "optimisation.modules.system"
     ]
   },
-  "paths": {
+  paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
     "bitbucket:*": "jspm_packages/bitbucket/*"
-  }
-});
+  },
 
-System.config({
-  "meta": {
+  meta: {
     "/*.css": {
       "loader": "systemjs/plugin-css"
     },
@@ -32,11 +30,9 @@ System.config({
     "/*.jpg": {
       "loader": "arva-utils/ImageLoader"
     }
-  }
-});
+  },
 
-System.config({
-  "map": {
+  map: {
     "arva-components": "github:Bizboard/arva-components@develop",
     "arva-ds": "github:Bizboard/arva-ds@develop",
     "arva-js": "github:Bizboard/arva-js@develop",
@@ -44,7 +40,7 @@ System.config({
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
     "clean-css": "npm:clean-css@3.4.6",
-    "core-js": "npm:core-js@0.9.18",
+    "core-js": "npm:core-js@1.2.2",
     "css": "github:systemjs/plugin-css@0.1.19",
     "di.js": "github:Bizboard/di.js@master",
     "famous": "npm:famous@0.3.5",
@@ -197,8 +193,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:core-js@0.9.18": {
+    "npm:core-js@1.2.2": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
@@ -362,4 +359,3 @@ System.config({
     }
   }
 });
-
