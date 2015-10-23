@@ -5,10 +5,10 @@
 import _                     from 'lodash';
 import Surface               from 'famous/core/Surface.js';
 import Utility               from 'famous/utilities/Utility.js';
-import CanvasSurface         from 'famous/surfaces/CanvasSurface.js';
+import {EqualizerSurface}    from '../components/EqualizerSurface.js';
+import {AudioSurface}        from '../components/AudioSurface.js';
 
 import {View}                from 'arva-js/core/View.js';
-import {AudioSurface}        from '../components/AudioSurface.js';
 
 export class MusicView extends View {
 
@@ -19,8 +19,8 @@ export class MusicView extends View {
             url: options.url
         });
 
-        this.renderables.equalizer = new CanvasSurface({
-
+        this.renderables.equalizer = new EqualizerSurface({
+            audioSource: this.renderables.audio
         });
 
 
@@ -33,7 +33,7 @@ export class MusicView extends View {
             });
 
             context.set('equalizer', {
-                size: [32,32],
+                size: [400,150],
                 origin: [1, 0],
                 align: [1, 0]
             });
