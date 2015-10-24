@@ -80,7 +80,7 @@ export class AudioSurface extends Surface {
             analyser.getByteFrequencyData(this._streamData);
             // calculate an overall volume value
             var total = 0;
-            for (var i = 0; i < 2000; i++) { // get the volume from the first 80 bins, else it gets too loud with treble
+            for (var i = 0; i < 80; i++) { // get the volume from the first 80 bins, else it gets too loud with treble
                 total += this._streamData[i];
             }
             this.volume = total;

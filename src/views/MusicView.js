@@ -19,10 +19,20 @@ export class MusicView extends View {
             url: options.url
         });
 
-        this.renderables.equalizer = new EqualizerSurface({
+        this.renderables.equalizerRight = new EqualizerSurface({
+            properties: {
+                'background-color':'black'
+            },
             audioSource: this.renderables.audio
         });
 
+        this.renderables.equalizerLeft = new EqualizerSurface({
+            properties: {
+                'background-color':'black'
+            },
+            positionLeft: 'true',
+            audioSource: this.renderables.audio
+        });
 
         this.layouts.push((context) => {
 
@@ -32,11 +42,17 @@ export class MusicView extends View {
                 align: [0, 0]
             });
 
-            context.set('equalizer', {
-                size: [400,150],
-                origin: [1, 0],
-                align: [1, 0]
+            context.set('equalizerRight', {
+                size: [context.size[0]/2,context.size[1]],
+                origin: [1, 0.5],
+                align: [1, 0.5]
             });
+            context.set('equalizerLeft', {
+                size: [context.size[0]/2,context.size[1]],
+                origin: [0, 0.5],
+                align: [0, 0.5]
+            });
+
         });
     }
 }
